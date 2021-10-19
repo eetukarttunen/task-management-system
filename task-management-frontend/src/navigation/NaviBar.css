@@ -1,0 +1,161 @@
+.navibar {
+    /*Käytännössä vasemman ja oikeanpuoleista muuttamalla voidaan muuttaa navibarin varjoja.*/
+    /*Tällä hetkellä siis kummatkin täysin musta, mutta muokkaamalla esimerkiksi nollaprosenttinen valkeaksi,
+    saadaan aikaan varjomainen valkea vasen*/
+    background: linear-gradient(90deg, rgb(53, 56, 83) 0%, rgb(53, 56, 83) 100%);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .navibar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+  }
+  
+  .navibar-logo {
+    color: rgb(255, 255, 255);
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .fa-typo3 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .navi-menu {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 60vw;
+    justify-content: end;
+    margin-right: 2rem;
+  }
+  
+  .navi-item {
+    height: 80px;
+  }
+  
+  .navi-links {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+  }
+  
+  .navi-links:hover {
+    border-bottom: 4px solid rgb(200, 220, 245);
+    transition: all 0.2s ease-out;
+  }
+
+  .fa-bars {
+    color: rgb(0, 0, 0);
+  }
+  
+  .navi-links-mobile {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .NavibarItems {
+      position: relative;
+    }
+  
+    .navi-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 90vh;
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+  
+    .navi-menu.active {
+      background: #ebeaea;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+  
+    .navi-links {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      display: table;
+    }
+  
+    .navi-links:hover {
+      background-color: rgb(255, 255, 255);
+      color: #000000;
+      border-radius: 0;
+    }
+  
+    .navibar-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(25%, 50%);
+    }
+  
+    .menu-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+  
+    .fa-times {
+      color: rgb(0, 0, 0);
+      font-size: 2rem;
+    }
+  
+    .navi-links-mobile {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      border-radius: 4px;
+      width: 80%;
+      text-decoration: none;
+      font-size: 1.5rem;
+      background-color: transparent;
+      color: rgb(0, 0, 0);
+      padding: 14px 20px;
+      border: 1px solid rgb(0, 0, 0);
+      transition: all 0.3s ease-out;
+    }
+  
+    .navi-links-mobile:hover {
+      background: rgb(255, 255, 255);
+      color: #000000;
+      transition: 250ms;
+    }
+  }
