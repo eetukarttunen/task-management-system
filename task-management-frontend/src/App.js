@@ -1,11 +1,11 @@
 import TaskList from './tasks/TaskList';
 import './App.css';
-import NaviBar from './navigation/NaviBar';
+import Navigation from './navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <NaviBar/>
+      <Navigation/>
       <TaskList/>
     </div>
   );

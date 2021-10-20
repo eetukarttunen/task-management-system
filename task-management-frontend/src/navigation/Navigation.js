@@ -1,9 +1,9 @@
 //
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import './NaviBar.css';
+import './Navigation.css';
 
-function NaviBar() {
+function Navigation() {
 
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -28,13 +28,11 @@ function NaviBar() {
         <>
         <nav className = 'navibar'>
             <div className ='navibar-container'>
-                <li to='/' className='navibar-logo' onClick={closeMobileMenu}>
-                    TASK MANAGEMENT
-                </li>  
+                TASK MANAGEMENT
             </div>
         </nav>
         </>
     );
 }
 
-export default NaviBar
+export default Navigation

@@ -11,10 +11,13 @@
   }
   
   .navibar-container {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.904);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
+    font-size: 2rem;
     max-width: 1500px;
   }
   

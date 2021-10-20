@@ -8,7 +8,7 @@ const TaskSchema = new Schema({
 	},
     priority: {
         type: String,
-        required: false
+        required: true
     },
 });
 

@@ -1,11 +1,13 @@
 import "./Task.css";
 import { RiCloseCircleLine } from 'react-icons/ri';
 import React, { useState, useEffect } from 'react';
+
 const api_base = 'http://localhost:3001';
 
 function App() {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState("");
+  	const [value, setValue] = useState("default");
 
 	useEffect(() => {
 		GetTasks();
@@ -24,7 +26,8 @@ function App() {
 				"Content-Type": "application/json" 
 			},
 			body: JSON.stringify({
-				text: newTask
+				text: newTask,
+				priority: "Prio 1"
 			})
 		}).then(res => res.json());
 
@@ -34,7 +37,8 @@ function App() {
 	}
 
 	const deleteTask = async id => {
-		const data = await fetch(api_base + '/task/delete/' + id, { method: "DELETE" }).then(res => res.json());
+		const data = await fetch(api_base + '/task/delete/' + id, { method: "DELETE" })
+    .then(res => res.json());
 
 		setTasks(tasks => tasks.filter(task => task._id !== data.result._id));
 	}
@@ -50,9 +54,18 @@ function App() {
               name='text'
               className='taskInput'
             />
+            <select defaultValue={value} id="framework">
+              <option value="default" disabled hidden>
+                Choose priority
+              </option>
+              <option value="1">Low</option>
+              <option value="2">Medium</option>
+              <option value="3">High</option> 
+              <option value="4">Urgent</option>
+            </select>
           <div className='taskButton' onClick={addTask}>Add</div>
+          
       </div>
-
 			<div>
 				{tasks.length > 0 ? tasks.map(task => (
 					<div 
