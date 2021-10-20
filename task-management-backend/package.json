@@ -1,0 +1,20 @@
+{
+  "name": "task-management-backend",
+  "version": "1.0.0",
+  "description": "backend for time management system",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eetu Karttunen",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.11",
+    "node": "^16.11.1",
+    "nodemon": "^2.0.14"
+  }
+}
