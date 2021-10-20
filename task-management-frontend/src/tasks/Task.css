@@ -21,7 +21,7 @@
   background-color: rgb(110, 116, 168);
 }
 
-.todoRow {
+.taskRow {
   display: flex;
   justify-content: space-between;
   background: rgb(53, 56, 83);
@@ -43,6 +43,10 @@
   color: #fff;
 }
 
+.deleteButton:hover {
+  color: rgb(170, 172, 250);
+}
+
 .inputGroup {
   display: flex;
   margin-bottom: 0.1%;
@@ -51,6 +55,19 @@
 
 .group {
   margin-top: 2%;
-  margin-left: 40%;
-  margin-right: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+:root {
+	--primary: #D81E5B;
+	--secondary: #8A4EFC;
+	--light: #EEE;
+	--light-alt: #61759b;
+	--dark: #131A26;
+	--dark-alt: #202B3E;
+}
+
+h1 {
+  color: rgb(53, 56, 83);
 }

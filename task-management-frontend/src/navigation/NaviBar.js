@@ -29,7 +29,7 @@ function NaviBar() {
         <nav className = 'navibar'>
             <div className ='navibar-container'>
                 <li to='/' className='navibar-logo' onClick={closeMobileMenu}>
-                TEHTÄVIENHALLINTA
+                    TASK MANAGEMENT
                 </li>  
             </div>
         </nav>

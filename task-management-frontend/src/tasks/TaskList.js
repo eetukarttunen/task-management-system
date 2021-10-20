@@ -1,57 +1,81 @@
-import React, { useState } from 'react';
-import TaskForm from './TaskForm';
-import Task from './Task';
 import "./Task.css";
+import { RiCloseCircleLine } from 'react-icons/ri';
+import React, { useState, useEffect } from 'react';
+const api_base = 'http://localhost:3001';
 
-function TaskList() {
-  const [todos, setTodos] = useState([]);
+function App() {
+	const [tasks, setTasks] = useState([]);
+	const [newTask, setNewTask] = useState("");
 
-  const addTodo = todo => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
-      return;
-    }
+	useEffect(() => {
+		GetTasks();
+	}, []);
 
-    const newTodos = [todo, ...todos];
+	const GetTasks = () => {
+		fetch(api_base + '/tasks')
+			.then(res => res.json())
+			.then(data => setTasks(data))
+			.catch((err) => console.error("Error: ", err));
+	}
+	const addTask = async () => {
+		const data = await fetch(api_base + "/task/new", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json" 
+			},
+			body: JSON.stringify({
+				text: newTask
+			})
+		}).then(res => res.json());
 
-    setTodos(newTodos);
-    console.log(...todos);
-  };
+		setTasks([...tasks, data]);
 
-  const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
-      return;
-    }
+		setNewTask("");
+	}
 
-    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
-  };
+	const deleteTask = async id => {
+		const data = await fetch(api_base + '/task/delete/' + id, { method: "DELETE" }).then(res => res.json());
 
-  const removeTodo = id => {
-    const removedArr = [...todos].filter(todo => todo.id !== id);
+		setTasks(tasks => tasks.filter(task => task._id !== data.result._id));
+	}
 
-    setTodos(removedArr);
-  };
-
-  const completeTodo = id => {
-    let updatedTodos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
-
-  return (
+	return (
     <div className="group">
-      <TaskForm onSubmit={addTodo} />
-      <Task
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
+      <div className="inputGroup">
+            <input 
+              type="text" 
+              onChange={e => setNewTask(e.target.value)} 
+              value={newTask} 
+              placeholder='Enter a new task'
+              name='text'
+              className='taskInput'
+            />
+          <div className='taskButton' onClick={addTask}>Add</div>
+      </div>
+
+			<div>
+				{tasks.length > 0 ? tasks.map(task => (
+					<div 
+            className='taskRow' >
+            <div>{task.text}</div>
+            <div className='icons'>
+              <RiCloseCircleLine
+                onClick={() => deleteTask(task._id)}
+                className='deleteButton'/>
+            </div>
+          
+          </div>
+				)) : (
+					<p>No tasks added yet</p>
+				)}
+      </div>
+
+
+
+        
+
     </div>
-  );
+	);
 }
 
-export default TaskList;
+export default App;
