@@ -62,14 +62,40 @@ select:focus {
   box-shadow: 0 0 5px rgb(70, 76, 117);
 }
 
-.taskRow {
+.low {
   cursor: default;
   display: flex;
   justify-content: space-between;
-  background: rgb(70, 76, 117);
+  background: rgb(57, 165, 30);
   padding: 3%;
   margin-bottom: 1%;
   color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.medium {
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  background: rgb(228, 182, 30);
+  padding: 3%;
+  margin-bottom: 1%;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.high {
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  background: rgb(219, 47, 25);
+  padding: 3%;
+  margin-bottom: 1%;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
 }
 
 .icons {
@@ -82,7 +108,7 @@ select:focus {
 .deleteButton {
   transition-duration: 0.4s;
   margin-right: 5px;
-  color: #fff;
+  color: rgb(255, 254, 254);
 }
 
 .deleteButton:hover {
@@ -93,6 +119,7 @@ select:focus {
   display: flex;
   margin-bottom: 0.1%;
   color: #fff;
+  margin-bottom: 2%;
 }
 
 .group {

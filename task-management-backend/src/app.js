@@ -23,7 +23,8 @@ app.get('/tasks', async (req, res) => {
 
 app.post('/task/new', (req, res) => {
 	const task = new Task({
-		text: req.body.text
+		text: req.body.text,
+		priority: req.body.priority
 	})
 
 	task.save();
