@@ -28,8 +28,9 @@ function Navigation() {
         <>
         <nav className = 'navibar'>
             <div className ='navibar-container'>
-                TASK MANAGEMENT
+                <img src="./tasky.png" className='navibar-logo'/>
             </div>
+            
         </nav>
         </>
     );

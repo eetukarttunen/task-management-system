@@ -2,7 +2,7 @@ import "./Task.css";
 import { RiCloseCircleLine } from 'react-icons/ri';
 import React, { useState, useEffect } from 'react';
 
-const api_base = 'http://localhost:3001';
+const api = 'http://localhost:3001';
 
 function App() {
 	const [tasks, setTasks] = useState([]);
@@ -14,7 +14,7 @@ function App() {
 	}, []);
 
 	const GetTasks = () => {
-		fetch(api_base + '/tasks')
+		fetch(api + '/tasks')
 			.then(res => res.json())
 			.then(data => setTasks(data))
 			.catch((err) => console.error("Error: ", err));
@@ -29,25 +29,32 @@ function App() {
 			alert("Set priority");
 		}
 		else {
-		const data = await fetch(api_base + "/task/new", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json" 
-			},
-			body: JSON.stringify({
-				text: newTask,
-				priority: value
-			})
-		}).then(res => res.json());
+			if (newTask === "") {
+				alert("Set text")
+			}
+			else {
+			const data = await fetch(api + "/task/new", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json" 
+				},
+				body: JSON.stringify({
+					text: newTask,
+					priority: value
+				})
+			}).then(res => res.json());
 
-		setTasks([...tasks, data]);
-
-		setNewTask("");
-		setValue("default");
-		}
+			
+			if (newTask !== "") {
+			setTasks([...tasks, data]);
+			}
+			setNewTask("");
+			setValue("default");
+				}	
+			}
 	}
 	const deleteTask = async id => {
-		const data = await fetch(api_base + '/task/delete/' + id, { method: "DELETE" })
+		const data = await fetch(api + '/task/delete/' + id, { method: "DELETE" })
     .then(res => res.json());
 
 		setTasks(tasks => tasks.filter(task => task._id !== data.result._id));
@@ -85,14 +92,9 @@ function App() {
           
           </div>
 				)) : (
-					<p>No tasks added yet</p>
+					<p style={{"color": "white"}}>No tasks added yet</p>
 				)}
       </div>
-
-
-
-        
-
     </div>
 	);
 }
