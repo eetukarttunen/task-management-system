@@ -92,7 +92,7 @@ function App() {
           
           </div>
 				)) : (
-					<p style={{"color": "white"}}>No tasks added yet</p>
+					<p style={{"color": "#7583c4"}}>No tasks added yet</p>
 				)}
       </div>
     </div>

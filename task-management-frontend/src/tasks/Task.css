@@ -4,21 +4,21 @@
   transition-duration: 0.4s;
   width: 100%;
   padding: 14px 32px 14px 16px;
-  color: rgb(53, 56, 83);
-  border-color: rgb(53, 56, 83);
-  border: 2.0px solid rgb(70, 76, 117);
+  color: #8292da;
+  border-color: #8292da;
+  border: 2.0px solid #8292da;
 }
 
 .taskInput:focus {
   outline: none !important;
-  border: 2.0px solid rgb(70, 76, 117);
-  box-shadow: 0 0 5px rgb(70, 76, 117);
+  border: 2.0px solid #8292da;
+  box-shadow: 0 0 5px #8292da;
 }
 
 .taskInput:hover {
   outline: none !important;
-  border: 2.0px solid rgb(70, 76, 117);
-  box-shadow: 0 0 5px rgb(70, 76, 117);
+  border: 2.0px solid #8292da;
+  box-shadow: 0 0 5px #8292da;
 }
 
 .taskButton {
@@ -26,8 +26,8 @@
   transition-duration: 0.8s;
   padding: 16px;
   cursor: pointer;
-  border: 2.0px solid rgb(53, 56, 83);
-  background-color: rgb(53, 56, 83);
+  border: 2.0px solid #8292da;
+  background-color: #8292da;
   color: rgb(255, 255, 255);
 }
 
@@ -46,16 +46,16 @@ select {
   font-weight: 500;
   margin-left: 1%;
   margin-right: 1%;
-  border: 2.0px solid rgb(53, 56, 83);
-  background-color: rgb(53, 56, 83);
+  border: 2.0px solid #8292da;
+  background-color: #8292da;
   color: rgb(255, 255, 255);
   
 }
 
 select:hover {
-  background-color: rgb(53, 56, 83);
+  background-color: #8292da;
   color: rgb(255, 255, 255);
-  box-shadow: 0 0 5px rgb(53, 56, 83);
+  box-shadow: 0 0 5px #8292da;
 }
 
 
