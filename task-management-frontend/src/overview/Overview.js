@@ -1,10 +1,10 @@
-import "./Task.css";
+
 import { RiCloseCircleLine } from 'react-icons/ri';
 import React, { useState, useEffect } from 'react';
 
 const api = 'http://localhost:3001';
 
-function TaskList() {
+function Overview() {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState("");
   	const [value, setValue] = useState("default");
@@ -63,32 +63,14 @@ function TaskList() {
 
 	return (
     <div className="group">
-      <div className="inputGroup">
-        <input 
-            type="text" 
-            onChange={e => setNewTask(e.target.value)} 
-            value={newTask} 
-            placeholder='Task name'
-            name='text'
-            className='taskInput'
-        />
-        <select defaultValue="default" value={value} onChange={addPriority} id="framework">
-            <option value="default" disabled hidden>Priority</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option> 
-        </select>
-    	<div className='taskButton' onClick={addTask}>Add</div>
-          
-      </div>
-		<div>{tasks.length > 0 ? tasks.map(task => (
-			<div className={task.priority}>
-				<div>{task.text}</div>
-				<div className='icons'>
-				<RiCloseCircleLine
-					onClick={() => deleteTask(task._id)}
-					className='deleteButton'/>
-				</div>
+      Overview
+	  <div>{tasks.length > 0 ? tasks.map(task => (
+			<div>
+				
+
+				{task.priority == 'high' &&
+				<div className={task.priority}>{task.text}</div>
+				}
           
           </div>
 				)) : (
@@ -99,4 +81,4 @@ function TaskList() {
 	);
 }
 
-export default TaskList;
+export default Overview;
