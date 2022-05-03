@@ -1,12 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Navigation.css';
 import {Link} from 'react-router-dom';
-import {
-    MenuItem,
-  } from "react-pro-sidebar";
-  import { FaList} from "react-icons/fa";
-  import { RiPencilLine } from "react-icons/ri";
-  import "react-pro-sidebar/dist/css/styles.css";
+import "react-pro-sidebar/dist/css/styles.css";
 
 function Navigation() {
     const [button, setButton] = useState(true);
@@ -38,7 +33,7 @@ function Navigation() {
                 <ul className={click ? 'navi-menu active' : 'navi-menu'}>
                     <li className = 'navi-item'>
                         <Link to='/' className='navi-links' onClick={closeMobileMenu}>
-                        ADD
+                        NEW
                         </Link>
                         </li>
                     <li className = 'navi-item'>

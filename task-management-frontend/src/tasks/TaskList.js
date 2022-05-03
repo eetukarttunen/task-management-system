@@ -63,6 +63,7 @@ function TaskList() {
 
 	return (
     <div className="group">
+	<h2>ADD A NEW TASK</h2>
       <div className="inputGroup">
         <input 
             type="text" 

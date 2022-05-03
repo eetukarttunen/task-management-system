@@ -34,7 +34,7 @@
 .taskButton:hover {
   border: 2.0px solid (53, 56, 83);
   background-color: (53, 56, 83);
-  color: rgba(124, 124, 124, 0.952);
+  color: rgb(61, 62, 65);
   box-shadow: 0 0 5px (53, 56, 83);
 }
 

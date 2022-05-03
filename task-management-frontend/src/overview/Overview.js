@@ -62,21 +62,61 @@ function Overview() {
 	
 
 	return (
-    <div className="group">
-      Overview
+    <div>
+      <h2>OVERVIEW</h2>
+	  <h3>HIGH PRIORITY TASKS</h3>
 	  <div>{tasks.length > 0 ? tasks.map(task => (
 			<div>
 				
 
 				{task.priority == 'high' &&
-				<div className={task.priority}>{task.text}</div>
+				<div className={task.priority}>{task.text} 
+					<RiCloseCircleLine
+						onClick={() => deleteTask(task._id)}
+						className='deleteButton'/>
+				</div>
 				}
-          
           </div>
 				)) : (
 					<p style={{"color": "#7583c4"}}>No tasks added yet</p>
 				)}
       </div>
+	  <h3>MEDIUM PRIORITY TASKS</h3>
+	  <div>{tasks.length > 0 ? tasks.map(task => (
+			<div>
+				
+
+				{task.priority == 'medium' &&
+				<div className={task.priority}>{task.text} 
+					<RiCloseCircleLine
+						onClick={() => deleteTask(task._id)}
+						className='deleteButton'/>
+				</div>
+				}
+          </div>
+				)) : (
+					<p style={{"color": "#7583c4"}}>No tasks added yet</p>
+				)}
+      </div>
+
+	  <h3>LOW PRIORITY TASKS</h3>
+	  <div>{tasks.length > 0 ? tasks.map(task => (
+			<div>
+				
+
+				{task.priority == 'low' &&
+				<div className={task.priority}>{task.text} 
+					<RiCloseCircleLine
+						onClick={() => deleteTask(task._id)}
+						className='deleteButton'/>
+			</div>
+				}
+          </div>
+				)) : (
+					<p style={{"color": "#7583c4"}}>No tasks added yet</p>
+				)}
+      </div>
+	  
     </div>
 	);
 }

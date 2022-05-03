@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+h2 {
+  color: #5a6794;
+}
+h3 {
+  color: #5a6794;
+  font-weight: 400;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
